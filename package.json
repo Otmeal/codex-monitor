@@ -2,6 +2,11 @@
   "name": "codex-monitor",
   "displayName": "codex-monitor",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chysong/codex-monitor.git"
+  },
+  "license": "MIT",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.100.0"
@@ -10,16 +15,24 @@
     "Other"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onCommand:codexMonitor.playTestSound"
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "codexMonitor.playTestSound",
+        "title": "Codex Monitor: Play Test Chime",
+        "category": "Codex Monitor"
+      }
+    ],
     "configuration": {
       "title": "Codex Monitor",
       "properties": {
         "codexMonitor.minInsertedLength": {
           "type": "number",
-          "default": 200,
+          "default": 10,
           "description": "Minimum number of inserted characters in a single edit to treat as a Codex-like edit."
         }
       }
@@ -51,7 +64,5 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3"
   },
-  "dependencies": {
-    "node-wav-player": "^1.0.0"
-  }
+  "dependencies": {}
 }
